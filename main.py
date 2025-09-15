@@ -30,11 +30,11 @@ def capture_board():
         c = crop.getpixel((cx+px, cy+(cellsz-1-py)))
         c9 = crop.getpixel((cx+9, cy+(cellsz-1-3)))
         if c==(163,163,163): return "U"
-        if c==(162,162,162): return "F"
+        if c==(162,162,162) or c==(162,150,93): return "F"
         if c==(188,188,188) and c9!=(35,35,139): return "E"
-        if c==(41,41,241): return "1"
+        if c==(41,41,241) or c==(47,42,227): return "1"
         if c==(0,102,0): return "2"
-        if c==(251,10,10): return "3"
+        if c==(251,10,10) or c==(253,11,7): return "3"
         if c9==(35,35,139): return "4"
         if c==(130,7,7): return "5"
         if c==(7,130,130): return "6"
@@ -46,7 +46,7 @@ def capture_board():
         for x in range(grid):
             state=get_state(x*cellsz,y*cellsz)
             row.append(state)
-            #draw.text((x*cellsz+4,y*cellsz+2), state, fill="yellow")
+            #draw.text((x*cellsz+4,y*cellsz+2), state, fill="black")
         board.append(row)
 
     crop.save(path, "PNG")
@@ -94,7 +94,9 @@ def solve_board():
                 if diff2 and n2-n1==len(diff2):
                     for x,y in diff2: changed|=mark_cell(x,y,"F","red")
         for cells,n in constraints:
-            if 1<=len(cells)<=8:
+            if 1 <= len(cells) <= 8:
+                if n < 0 or n > len(cells):
+                    continue
                 sols=[]
                 for mines in combinations(cells,n):
                     sols.append(set(mines))
@@ -103,7 +105,7 @@ def solve_board():
                 for x,y in common_mines: changed|=mark_cell(x,y,"F","red")
 
 root = tk.Tk()
-root.title("solvr [ic3dwtf]")
+root.title("solvr [ic3dwtf] [v.1.0.1]")
 root.configure(bg="#2e2e2e")
 root.attributes('-topmost', True)
 
@@ -123,5 +125,4 @@ def update_loop():
     root.after(200, update_loop)
 
 update_loop()
-
 root.mainloop()
