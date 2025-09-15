@@ -120,7 +120,8 @@ def update_loop():
     tk_img2 = ImageTk.PhotoImage(crop)
     canvas.itemconfig(img_id, image=tk_img2)
     canvas.image = tk_img2
-    root.after(200, update_loop)  # update every 200ms
+    root.after(200, update_loop)
 
 update_loop()
+
 root.mainloop()
