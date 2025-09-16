@@ -17,8 +17,12 @@ a lightweight game mod approved overlay minesweeper solver for tsc
 
 ## building  
 1. clone this repo  
-```bash
+
+```
+bash
 git clone https://github.com/ic3dwtf/solvr.git
-cd solvr```
+cd solvr
+```
 2. run the build script
+
 ```./build.bat```

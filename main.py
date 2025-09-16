@@ -6,7 +6,7 @@ import requests
 import sys
 import os
 
-version = open("version.txt").read().strip()
+version = "1.1.0"
 
 sys.setrecursionlimit(10**6)
 
@@ -89,7 +89,7 @@ def mark_cell(x,y,state,color):
 
 def solve_board():
     changed=True
-    
+
     while changed:
         changed=False
         constraints=[]
