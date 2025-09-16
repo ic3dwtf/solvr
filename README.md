@@ -1,3 +1,5 @@
+[![discord](https://img.shields.io/discord/trF69PtGB7?label=join%20discord&logo=discord)](https://discord.gg/trF69PtGB7)
+
 # solvr !
 
 a lightweight game mod approved overlay minesweeper solver for tsc
