@@ -6,9 +6,16 @@ import requests
 import sys
 import os
 
-version = "1.1.0"
-
 sys.setrecursionlimit(10**6)
+
+base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+
+icon_path = os.path.join(base, "icon.ico")
+version_path = os.path.join(base, "version.txt")
+img_folder = os.path.join(base, "images")
+
+with open(version_path, "r") as f:
+    version = f.read().strip()
 
 root = tk.Tk()
 root.title(f"solvr [ic3dwtf] [v.{version}]")
@@ -16,7 +23,7 @@ root.configure(bg="#2e2e2e")
 root.attributes('-topmost', True)
 root.resizable(False, False)
 root.geometry("300x0")
-root.iconbitmap("icon.ico")
+root.iconbitmap(os.path.join(base, "icon.ico"))
 
 def check_version():
     try:
@@ -39,8 +46,11 @@ px, py = 8, 3
 
 board = []
 crop = None
-path = os.path.abspath("images/grid.png")
-os.makedirs("images", exist_ok=True)
+
+img_folder = os.path.join(base, "images")
+path = os.path.join(img_folder, "grid.png")
+
+os.makedirs(img_folder, exist_ok=True)
 
 def capture_board():
     global crop, board
@@ -89,7 +99,7 @@ def mark_cell(x,y,state,color):
 
 def solve_board():
     changed=True
-
+    
     while changed:
         changed=False
         constraints=[]
