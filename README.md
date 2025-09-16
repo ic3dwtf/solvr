@@ -9,7 +9,7 @@ a lightweight game mod approved overlay minesweeper solver for tsc
 ## information  
 - marks mines in **red**  
 - marks safe spots in **green**  
-- solves basic constraints and combinatorics  
+- solves with constraints and combinatorics  
 - overlays mines and safe spots on board
 - 1920 x 1080 only
 - don't use in full-screen
