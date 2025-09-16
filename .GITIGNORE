@@ -6,6 +6,7 @@ env/
 .venv/
 dist/
 build/ 
+images/
 main.spec
 *.log
 .vscode/
