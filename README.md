@@ -12,6 +12,7 @@ the code is open source, and the main.py has zero detections, zero antivirus fla
 
 [a website to decompile pyinstaller exes yourself so that you can see that it isn't malware](https://pyinstxtractor-web.netlify.app/)
 
+[a video showing the repo being built and that it false positives](https://www.youtube.com/watch?v=PCoBPS2nXqk)
 
 go build the file yourself with onefile on pyinstaller and see that it'll flag
 
